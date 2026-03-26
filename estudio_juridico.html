@@ -707,182 +707,18 @@
     flex-shrink: 0;
   }
 
-  .calendar-widget {
+  .calendly-wrapper {
     background: var(--dark-3);
     border: 1px solid rgba(201,168,76,0.15);
-    padding: 40px;
-  }
-
-  .cal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 32px;
-  }
-
-  .cal-month {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 300;
-    color: var(--light);
-  }
-
-  .cal-nav {
-    display: flex;
-    gap: 8px;
-  }
-
-  .cal-btn {
-    width: 36px; height: 36px;
-    border: 1px solid rgba(201,168,76,0.3);
-    background: transparent;
-    color: var(--gold);
-    cursor: none;
-    font-size: 16px;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .cal-btn:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
-
-  .cal-days-header {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-    margin-bottom: 8px;
-  }
-
-  .cal-day-name {
-    text-align: center;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 8px 0;
-  }
-
-  .cal-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-  }
-
-  .cal-day {
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    color: var(--text-muted);
-    cursor: none;
-    transition: all 0.2s;
+    overflow: hidden;
     position: relative;
-    border-radius: 2px;
   }
 
-  .cal-day.available {
-    color: var(--light);
-    cursor: none;
+  .calendly-wrapper .calendly-inline-widget {
+    min-width: 100%;
   }
 
-  .cal-day.available:hover {
-    background: rgba(201,168,76,0.15);
-    color: var(--gold);
-  }
-
-  .cal-day.selected {
-    background: var(--gold);
-    color: var(--dark);
-    font-weight: 500;
-  }
-
-  .cal-day.today {
-    border: 1px solid rgba(201,168,76,0.4);
-    color: var(--gold);
-  }
-
-  .cal-day.empty { opacity: 0; pointer-events: none; }
-
-  .cal-legend {
-    display: flex;
-    gap: 24px;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(201,168,76,0.1);
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    color: var(--text-muted);
-  }
-
-  .legend-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-  }
-
-  .legend-dot.available { background: var(--light); }
-  .legend-dot.selected-l { background: var(--gold); }
-  .legend-dot.unavailable { background: var(--dark-4); border: 1px solid rgba(255,255,255,0.1); }
-
-  /* TIME SLOTS */
-  .time-slots {
-    margin-top: 20px;
-    display: none;
-  }
-
-  .time-slots.visible { display: block; }
-
-  .slots-title {
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-  }
-
-  .slots-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-
-  .time-slot {
-    padding: 10px;
-    border: 1px solid rgba(201,168,76,0.2);
-    text-align: center;
-    font-size: 12px;
-    color: var(--light-2);
-    cursor: none;
-    transition: all 0.2s;
-  }
-
-  .time-slot:hover, .time-slot.selected-t {
-    background: var(--gold);
-    color: var(--dark);
-    border-color: var(--gold);
-    font-weight: 500;
-  }
-
-  .time-slot.taken {
-    opacity: 0.3;
-    pointer-events: none;
-    text-decoration: line-through;
-  }
-
-  /* BOOKING FORM */
-  .booking-form {
-    margin-top: 24px;
-    display: none;
-  }
-
-  .booking-form.visible { display: block; }
-
+  /* BOOKING FORM (kept for contact section) */
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -921,27 +757,6 @@
   .form-input:focus, .form-select:focus { border-color: var(--gold); }
 
   .form-select option { background: var(--dark-3); }
-
-  .btn-book {
-    width: 100%;
-    background: var(--gold);
-    color: var(--dark);
-    border: none;
-    padding: 16px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 500;
-    cursor: none;
-    transition: all 0.3s;
-    margin-top: 12px;
-  }
-
-  .btn-book:hover {
-    background: var(--gold-light);
-    box-shadow: 0 20px 60px rgba(201,168,76,0.3);
-  }
 
   /* CHATBOT */
   .chatbot-bubble {
@@ -1303,18 +1118,6 @@
     letter-spacing: 1px;
   }
 
-  /* SUCCESS MESSAGE */
-  .success-msg {
-    display: none;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.4);
-    padding: 20px;
-    text-align: center;
-    color: var(--gold);
-    font-size: 14px;
-    margin-top: 12px;
-  }
-
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
@@ -1656,80 +1459,14 @@
       </div>
     </div>
 
-    <div class="calendar-widget reveal reveal-delay-2">
-      <div class="cal-header">
-        <div class="cal-month" id="calMonth">Cargando...</div>
-        <div class="cal-nav">
-          <button class="cal-btn" onclick="changeMonth(-1)">‹</button>
-          <button class="cal-btn" onclick="changeMonth(1)">›</button>
-        </div>
-      </div>
-      <div class="cal-days-header">
-        <div class="cal-day-name">Lun</div>
-        <div class="cal-day-name">Mar</div>
-        <div class="cal-day-name">Mié</div>
-        <div class="cal-day-name">Jue</div>
-        <div class="cal-day-name">Vie</div>
-        <div class="cal-day-name">Sáb</div>
-        <div class="cal-day-name">Dom</div>
-      </div>
-      <div class="cal-grid" id="calGrid"></div>
-      <div class="cal-legend">
-        <div class="legend-item"><div class="legend-dot available"></div> Disponible</div>
-        <div class="legend-item"><div class="legend-dot selected-l"></div> Seleccionado</div>
-        <div class="legend-item"><div class="legend-dot unavailable"></div> No disponible</div>
-      </div>
-
-      <!-- TIME SLOTS -->
-      <div class="time-slots" id="timeSlots">
-        <div class="slots-title">Horarios disponibles</div>
-        <div class="slots-grid" id="slotsGrid"></div>
-      </div>
-
-      <!-- BOOKING FORM -->
-      <div class="booking-form" id="bookingForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Nombre</label>
-            <input type="text" class="form-input" id="fname" placeholder="Tu nombre">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Apellido</label>
-            <input type="text" class="form-input" id="lname" placeholder="Tu apellido">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-input" id="femail" placeholder="email@ejemplo.com">
-          </div>
-          <div class="form-group">
-            <label class="form-label">Teléfono</label>
-            <input type="tel" class="form-input" id="fphone" placeholder="11 1234-5678">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group full">
-            <label class="form-label">Área de consulta</label>
-            <select class="form-select" id="farea">
-              <option value="">Seleccioná un área</option>
-              <option>Derecho Vial — Accidentes de Tránsito</option>
-              <option>Derecho Vial — Defensa de Multas</option>
-              <option>Derecho Laboral — Despido</option>
-              <option>Derecho Laboral — Reclamo SRT</option>
-              <option>Sucesiones y Familia</option>
-              <option>Derecho Notarial, Registral e Inmobiliario</option>
-              <option>Derecho Migratorio</option>
-              <option>Otra consulta</option>
-            </select>
-          </div>
-        </div>
-        <button class="btn-book" onclick="confirmBooking()">Confirmar turno</button>
-        <div class="success-msg" id="successMsg">
-          ✓ Tu turno fue reservado exitosamente. Recibirás la confirmación por email.
-        </div>
+    <!-- Calendly inline widget -->
+    <div class="calendly-wrapper reveal reveal-delay-2">
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/TU-USUARIO-CALENDLY?background_color=111118&text_color=F5F2EC&primary_color=C9A84C"
+           style="min-width:320px;height:660px;">
       </div>
     </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
   </div>
 </section>
 
@@ -1871,125 +1608,6 @@ const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('revealed'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// CALENDAR
-let currentDate = new Date();
-let selectedDay = null;
-let selectedTime = null;
-
-const months = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-
-// Unavailable days (sundays + some randoms)
-const unavailableDates = new Set();
-
-function isAvailable(date) {
-  const d = date.getDay(); // 0=Sun
-  if(d === 0) return false; // only sundays unavailable
-  const key = date.toDateString();
-  if(unavailableDates.has(key)) return false;
-  if(date < new Date(new Date().setHours(0,0,0,0))) return false;
-  return true;
-}
-
-function renderCalendar() {
-  const grid = document.getElementById('calGrid');
-  const monthLabel = document.getElementById('calMonth');
-  
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth();
-  
-  monthLabel.textContent = months[month] + ' ' + year;
-  grid.innerHTML = '';
-  
-  const firstDay = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month+1, 0).getDate();
-  
-  // Adjust: Monday = 0
-  let startOffset = firstDay === 0 ? 6 : firstDay - 1;
-  
-  for(let i = 0; i < startOffset; i++) {
-    const empty = document.createElement('div');
-    empty.className = 'cal-day empty';
-    grid.appendChild(empty);
-  }
-  
-  const today = new Date();
-  
-  for(let d = 1; d <= daysInMonth; d++) {
-    const dayEl = document.createElement('div');
-    const thisDate = new Date(year, month, d);
-    const avail = isAvailable(thisDate);
-    
-    dayEl.className = 'cal-day' + (avail ? ' available' : '');
-    
-    if(thisDate.toDateString() === today.toDateString()) dayEl.classList.add('today');
-    if(selectedDay && thisDate.toDateString() === selectedDay.toDateString()) dayEl.classList.add('selected');
-    
-    dayEl.textContent = d;
-    
-    if(avail) {
-      dayEl.onclick = () => selectDay(thisDate);
-    }
-    
-    grid.appendChild(dayEl);
-  }
-}
-
-function selectDay(date) {
-  selectedDay = date;
-  selectedTime = null;
-  renderCalendar();
-  showTimeSlots();
-}
-
-const allTimes = ['09:00','09:30','10:00','10:30','11:00','11:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30'];
-const takenSlots = {'09:00':true,'10:30':true,'15:00':true};
-
-function showTimeSlots() {
-  const el = document.getElementById('timeSlots');
-  const grid = document.getElementById('slotsGrid');
-  el.classList.add('visible');
-  document.getElementById('bookingForm').classList.remove('visible');
-  grid.innerHTML = '';
-  
-  allTimes.forEach(t => {
-    const slot = document.createElement('div');
-    slot.className = 'time-slot' + (takenSlots[t] ? ' taken' : '');
-    slot.textContent = t;
-    if(!takenSlots[t]) {
-      slot.onclick = () => {
-        document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected-t'));
-        slot.classList.add('selected-t');
-        selectedTime = t;
-        document.getElementById('bookingForm').classList.add('visible');
-        document.getElementById('successMsg').style.display = 'none';
-      };
-    }
-    grid.appendChild(slot);
-  });
-}
-
-function changeMonth(dir) {
-  currentDate.setMonth(currentDate.getMonth() + dir);
-  renderCalendar();
-}
-
-function confirmBooking() {
-  const name = document.getElementById('fname').value;
-  const email = document.getElementById('femail').value;
-  const area = document.getElementById('farea').value;
-  
-  if(!name || !email || !area || !selectedDay || !selectedTime) {
-    alert('Por favor completá todos los campos.');
-    return;
-  }
-  
-  const msg = document.getElementById('successMsg');
-  msg.style.display = 'block';
-  msg.textContent = `✓ Turno confirmado para el ${selectedDay.toLocaleDateString('es-AR')} a las ${selectedTime}. Te enviaremos la confirmación a ${email}.`;
-}
-
-renderCalendar();
 
 // CHATBOT
 let chatOpen = false;
