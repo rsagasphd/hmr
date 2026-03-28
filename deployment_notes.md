@@ -16,10 +16,11 @@ What changed
 
   # 1. On Hetzner Cloud: create CX22 server, Ubuntu 24.04
   # 2. SSH in, then:
+  ssh -i ~/.ssh/id_gcs root@204.168.180.32
   apt update && apt install -y nginx certbot python3-certbot-nginx
 
   # 3. Upload the HTML file
-  scp estudio_juridico.html root@YOUR-HETZNER-IP:/var/www/html/index.html
+  scp estudio_juridico.html root@204.168.180.32:/var/www/html/index.html
 
   # 4. Point your .com.ar domain registrar's A record → YOUR-HETZNER-IP
   #    Wait for DNS propagation (5–30 min)
