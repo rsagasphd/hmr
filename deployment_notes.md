@@ -31,3 +31,7 @@ What changed
   # Done. Nginx auto-renews the cert via systemd timer.
 
   Total monthly cost: ~€4 for the VPS + domain renewal (varies by registrar). That's it.
+
+  ## useful ssh commands
+  ssh -i ~/.ssh/id_gcs root@204.168.180.32
+  scp -i ~/.ssh/id_gcs estudio_juridico.html root@204.168.180.32:/var/www/html/index.html   
