@@ -1506,10 +1506,11 @@
     <div style="position:absolute;top:-20px;right:-20px;width:100px;height:100px;border-radius:50%;border:1px solid rgba(201,168,76,0.12);"></div>
     <div style="font-family:'Cormorant Garamond',serif;font-size:80px;color:rgba(201,168,76,0.08);position:absolute;top:20px;right:24px;">⚖</div>
     <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Mensaje directo</div>
-    <div style="display:flex;flex-direction:column;gap:12px;">
-      <input type="text" class="form-input" placeholder="Tu nombre completo">
-      <input type="email" class="form-input" placeholder="Email de contacto">
-      <select class="form-select">
+    <form id="contactForm" style="display:flex;flex-direction:column;gap:12px;">
+      <input type="hidden" name="_subject" value="Nueva consulta — HMR Estudio Jurídico">
+      <input type="text" name="nombre" class="form-input" placeholder="Tu nombre completo" required>
+      <input type="email" name="email" class="form-input" placeholder="Email de contacto" required>
+      <select name="area" class="form-select" required>
         <option value="">¿Sobre qué necesitás consultar?</option>
         <option>Derecho Vial</option>
         <option>Derecho Laboral</option>
@@ -1518,9 +1519,11 @@
         <option>Derecho Migratorio</option>
         <option>Otra consulta</option>
       </select>
-      <textarea class="form-input" rows="4" placeholder="Contanos brevemente tu situación..." style="resize:vertical;"></textarea>
-      <button class="btn-primary" style="width:100%;cursor:none;">Enviar mensaje</button>
-    </div>
+      <textarea name="mensaje" class="form-input" rows="4" placeholder="Contanos brevemente tu situación..." style="resize:vertical;" required></textarea>
+      <button type="submit" id="contactSubmitBtn" class="btn-primary" style="width:100%;cursor:none;">Enviar mensaje</button>
+      <div id="contactSuccess" style="display:none;text-align:center;padding:16px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:13px;letter-spacing:1px;">✓ Mensaje enviado. Te contactaremos a la brevedad.</div>
+      <div id="contactError" style="display:none;text-align:center;padding:16px;background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);color:#e74c3c;font-size:13px;">Hubo un error al enviar. Por favor intentá de nuevo.</div>
+    </form>
   </div>
 </section>
 
@@ -1779,6 +1782,40 @@ setTimeout(() => {
     notif.style.display = 'flex';
   }
 }, 3000);
+
+// CONTACT FORM
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('contactSubmitBtn');
+  const success = document.getElementById('contactSuccess');
+  const error = document.getElementById('contactError');
+
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+  success.style.display = 'none';
+  error.style.display = 'none';
+
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/juridicohmrestudio@gmail.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(this)
+    });
+    if (res.ok) {
+      success.style.display = 'block';
+      this.reset();
+    } else {
+      error.style.display = 'block';
+    }
+  } catch {
+    error.style.display = 'block';
+  } finally {
+    btn.textContent = 'Enviar mensaje';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+});
 </script>
 </body>
 </html>
